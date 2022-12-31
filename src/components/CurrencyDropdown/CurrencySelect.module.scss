@@ -1,0 +1,66 @@
+.CurrencySelect {
+  position: relative;
+  display: block;
+  max-width: 200px;
+
+  &:focus-within .SelectIcon{
+    transform: rotate(225deg) translateY(-50%);
+  }
+}
+
+
+.SelectIcon {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #8d8d8d;
+  border-left: 2px solid #8d8d8d;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform-origin: top;
+  transform: rotate(45deg) translateY(-50%);
+  color: currentColor;
+  transition: all 0.3s ease;
+}
+
+.CurrencyList {
+  position: absolute;
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  list-style: none;
+  max-height: 300px;
+  max-width: 250px;
+  overflow-y: auto;
+    z-index: 1;
+  transition:
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  li {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2e8dc9;
+      color: #fff;
+    }
+  }
+}
+
+.CurrencyListHidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  max-height: 0;
+}
+

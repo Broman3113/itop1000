@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import Header from "./components/Header/Header";
+import {useAppDispatch, useAppSelector} from "./hooks/hooks";
+import {fetchCurrencySymbolsThunk, fetchLatestRatesThunk} from "./store/currencySlice";
+import Converter from "./components/Converter/Converter";
 
 function App() {
+  const dispatch = useAppDispatch();
+  const {rates, supportedCurrencies} = useAppSelector(state => state.currency);
+  console.log(rates);
+    console.log(supportedCurrencies);
+  useEffect(() => {
+    dispatch(fetchLatestRatesThunk());
+    dispatch(fetchCurrencySymbolsThunk());
+  } , [dispatch]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header currencyRates={rates}/>
+      <Converter/>
     </div>
   );
 }

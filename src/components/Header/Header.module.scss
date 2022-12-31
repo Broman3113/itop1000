@@ -1,0 +1,24 @@
+.Header{
+  background-color: #2f2f2f;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
+.Logo{
+  color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.CurrencyBlock{
+  color: #fff;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.CurrencyList{
+  list-style: none;
+}
